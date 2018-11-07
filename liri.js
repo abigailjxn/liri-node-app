@@ -14,9 +14,36 @@ console.log(spotify);
 //Make it so liri.js can take in one of the following commands:
 let userCommand = process.argv[2];
 let searchQuery = process.argv[3];
+let request = require("request");
+// var day = moment("1995-12-25");
 
 switch (userCommand) {
   case "concert-this":
+    // add validation later -- The name of the artist. If it contains one of the special characters below, please be sure to replace it by the corresponding code: for / use %252F, for ? use %253F, for * use %252A, and for " use %27C
+    let artist = searchQuery;
+    let queryUrl =
+      "https://rest.bandsintown.com/artists/" +
+      artist +
+      "/events?app_id=codingbootcamp";
+    var moment = require("moment");
+    moment().format();
+    request(queryUrl, function(error, response, body) {
+        let concertDate = moment(JSON.parse(body)[0].datetime).calendar();
+        let concertTime = moment(JSON.parse(body)[0].datetime).format("h:mm a");
+      if (!error && response.statusCode === 200) {
+        console.log(`
+
+            --------------------
+
+            ${artist} will be playing at ${JSON.parse(body)[0].venue.name}
+            in ${JSON.parse(body)[0].venue.city}
+            on ${concertDate} at ${concertTime}.
+           
+            --------------------
+
+            `);
+      }
+    });
     break;
   case "spotify-this-song":
     break;
