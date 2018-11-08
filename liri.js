@@ -128,7 +128,6 @@ switch (userCommand) {
 
   // SPOTIFY CASE
   case "spotify-this-song":
-    if (!searchQuery) {
       if (!searchQuery) {
         spotify.search({ type: "track", query: "The Sign", limit: 9 }, function(
           err,
@@ -156,7 +155,7 @@ switch (userCommand) {
       } else {
         spotifySearch(searchQuery);
       }
-    }
+    
     break;
 
   // OMDB CASE

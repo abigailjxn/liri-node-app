@@ -9,6 +9,7 @@ Using Node and the Command Line, this app will take in a command key-phrase and 
 After initiating node and running the file, the user issues a command phrase and search term.
 
 Ex. node liri.js **command** **search**
+    node liri.js spotify-this-song Saw You in a Dream
 
 <h2>Commands</h2>
 
@@ -19,6 +20,9 @@ Ex. node liri.js **command** **search**
 - **movie-this** : searches the omdb API for information about a particular movie. The search term must be a __movie title__. If no movie is given, the default search for this will be _Mr. Nobody_.
 
 - **do-what-it-says** : runs whatever commands have been pre-written in the random.txt file. 
+
+<h2>Demo</h2>
+[View a demonstration of the app here](LIRI-walkthrough.mov).
 
 <h2>Issues</h2>
 
