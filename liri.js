@@ -129,33 +129,10 @@ switch (userCommand) {
   // SPOTIFY CASE
   case "spotify-this-song":
       if (!searchQuery) {
-        spotify.search({ type: "track", query: "The Sign", limit: 9 }, function(
-          err,
-          data
-        ) {
-          if (err) {
-            return console.log("Error occurred: " + err);
-          }
-          let artist = data.tracks.items[8].artists[0].name;
-          let songName = data.tracks.items[8].name;
-          let prevLink = data.tracks.items[8].album.external_urls.spotify;
-          let album = data.tracks.items[8].album.name;
-
-          console.log(`
-                    --------------------
-            
-                    Track Title: ${songName}
-                    Artist: ${artist}
-                    Album: ${album}
-                    Spotify Preview: ${prevLink}
-                    
-                    --------------------
-                    `);
-        });
+        spotifySearch("The Sign Ace of Base");
       } else {
         spotifySearch(searchQuery);
       }
-    
     break;
 
   // OMDB CASE
