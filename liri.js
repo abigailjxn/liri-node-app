@@ -13,7 +13,7 @@ console.log(spotify);
 
 //Make it so liri.js can take in one of the following commands:
 let userCommand = process.argv[2];
-let searchQuery = process.argv[3];
+let searchQuery = process.argv.slice(3).join(' ');
 let request = require("request");
 
 switch (userCommand) {
@@ -50,6 +50,7 @@ switch (userCommand) {
   case "spotify-this-song":
     let songTitle = searchQuery;
     // add if (songTitle == undefined) case
+    // add if (!songTitle)
     // also add user validation for multi-word songTitle
     spotify.search({ type: "track", query: songTitle, limit: 3 }, function(
       err,
@@ -85,7 +86,7 @@ switch (userCommand) {
 
   // OMDB CASE
   case "movie-this":
-  // add undefined "MR.Nobody Case"
+  // add undefined "MR. Nobody Case"
   // add multi-word movie titles
     let movieTitle = searchQuery;
     let movieQueryUrl =
@@ -123,5 +124,7 @@ switch (userCommand) {
     });
     break;
   case "do-what-it-says":
+  let file = require('file-system');
+//   file
     break;
 }
