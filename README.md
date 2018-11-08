@@ -22,7 +22,7 @@ Ex. node liri.js **command** **search**
 - **do-what-it-says** : runs whatever commands have been pre-written in the random.txt file. 
 
 <h2>Demo</h2>
-[View a demonstration of the app here](LIRI-walkthrough.mov).
+[View a demonstration of the app here](https://youtu.be/8o71WGQBqvM).
 
 <h2>Issues</h2>
 
