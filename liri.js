@@ -1,20 +1,21 @@
-//add code to read and set any environment variables with the dotenv package
 require("dotenv").config();
 
-//Add the code required to import the `keys.js` file and store it in a variable.
+// Get Spotify Keys
 const keys = require("./keys");
 console.log(keys);
 
-//You should then be able to access your keys information like so
+// Get Spotify API package and create constructor
 const Spotify = require("node-spotify-api");
-
 const spotify = new Spotify(keys.spotify);
 console.log(spotify);
 
-//Make it so liri.js can take in one of the following commands:
+// User Input -- Commands + Queries
 let userCommand = process.argv[2];
 let searchQuery = process.argv.slice(3).join(" ");
 let request = require("request");
+
+
+// Create functions for each userCommand
 
 function concertSearch(searchQuery) {
   // add validation later -- The name of the artist. If it contains one of the special characters below, please be sure to replace it by the corresponding code: for / use %252F, for ? use %253F, for * use %252A, and for " use %27C
@@ -46,8 +47,6 @@ function concertSearch(searchQuery) {
 
 function spotifySearch(searchQuery) {
   let songTitle = searchQuery;
-  // add if (songTitle == undefined) case
-  // add if (!songTitle)
 
   spotify.search({ type: "track", query: songTitle, limit: 3 }, function(
     err,
@@ -182,8 +181,16 @@ switch (userCommand) {
     let textQuery = textData[1];
     console.log(textCommand, textQuery);
     switch(textCommand) {
+        case "concert-this":
+        concertSearch(textQuery);
+        break;
+
         case "spotify-this-song":
         spotifySearch(textQuery);
+        break;
+
+        case "movie-this":
+        omdbSearch(textQuery);
         break;
     }
 
