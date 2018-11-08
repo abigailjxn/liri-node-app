@@ -2,12 +2,10 @@ require("dotenv").config();
 
 // Get Spotify Keys
 const keys = require("./keys");
-console.log(keys);
 
 // Get Spotify API package and create constructor
 const Spotify = require("node-spotify-api");
 const spotify = new Spotify(keys.spotify);
-console.log(spotify);
 
 // User Input -- Commands + Queries
 let userCommand = process.argv[2];
@@ -18,7 +16,6 @@ let request = require("request");
 // Create functions for each userCommand
 
 function concertSearch(searchQuery) {
-  // add validation later -- The name of the artist. If it contains one of the special characters below, please be sure to replace it by the corresponding code: for / use %252F, for ? use %253F, for * use %252A, and for " use %27C
   let artist = searchQuery;
   let bandsQueryUrl =
     "https://rest.bandsintown.com/artists/" +
