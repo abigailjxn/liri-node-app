@@ -62,7 +62,6 @@ function spotifySearch(searchQuery) {
       prevLink = data.tracks.items[i].album.external_urls.spotify;
       album = data.tracks.items[i].album.name;
 
-      // console.log(artist, songName, prevLink, album);
       console.log(`
         --------------------
 
@@ -148,11 +147,9 @@ switch (userCommand) {
   case "do-what-it-says":
     let file = require("file-system");
     let text = file.readFileSync("./random.txt", "utf8");
-    console.log(text);
     let textData = text.split(",");
     let textCommand = textData[0];
     let textQuery = textData[1];
-    console.log(textCommand, textQuery);
     switch(textCommand) {
         case "concert-this":
         concertSearch(textQuery);
